@@ -1,0 +1,210 @@
+/* 
+Audrey Elizabeth Fernandez | Audrey's Studio stylesheet
+Repo: https://github.com/audreyelizabethf/cse134b-hw3
+*/
+
+/* CUSTOM PROPERTIES (at least 4)*/
+:root {
+    --color-bg: #fff8ee;
+    --color-text: #48273a;
+    --color-link: #8a3b62;
+    --color-accent: #ffe2eb;
+    --color-accent2: #d4e8c1;
+    --color-accent3: #d3e6f7;
+    --color-accent4: #e3d9f6;
+    --color-focus: #ff0099;
+    
+
+    --font-heading: ui-rounded, "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+    --font-body: "Trebuchet MS", "Segoe UI", Helvetica, sans-serif;
+
+    --max-width: 60rem;
+}
+
+/* TYPOGRAPHY*/
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height:1.6;
+    margin: 0;
+}
+
+main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+}
+
+h1 {
+    font-size: 3.25rem;
+}
+
+h2 {
+    font-size: 2.25rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+img, video,iframe {
+    max-width: 100%;
+    height: auto;
+    border: 3px solid white;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* HEADER + NAV w/ FLEXBOX */
+header {
+    background-color: var(--color-accent);
+    padding: 1rem;
+}
+
+nav ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 45px;
+    margin: 0;
+}
+
+/* ATTRIBUTE SELECTOR: highlight nav link for current page */
+a[aria-current="page"] {
+    font-weight:700;
+    background-color: var(--color-bg);
+    border-radius: 5px;
+    padding: 0.35rem;
+}
+
+/* LINKS: hover & focus */
+a {
+    color: var(--color-link);
+    padding: 0.35rem;
+}
+
+a:hover {
+    background-color: var(--color-accent2);
+    border-radius: 3px;
+}
+
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 3px solid var(--color-focus);    
+}
+
+/* BUTTONS */
+button {
+    background-color: var(--color-accent2);
+    border: 5px solid var(--color-accent2);
+    border-radius: 5px;
+    padding:0.5em;
+    font-family: var(--font-body);
+}
+
+/* CARDS */
+
+.new-pieces {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    list-style: none;
+    padding: 0;
+}
+
+/* Child combinator: Each <li> directly inside the New Pieces list on the homepage, styled as a card in a horizontal scroller. */
+.new-pieces > li {
+    width: 20rem;
+    flex-shrink: 0;
+    background-color: var(--color-accent2);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+}
+
+piece-card {
+            display: block;
+            border: 1px solid var(--color-link);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-block: 1rem;
+            background-color: var(--color-accent);
+            
+}
+
+article {
+    background-color: var(--color-accent3);
+    padding: 3rem;
+    border-radius: 10px;
+}
+
+/* Descendant combinator: the detail lists inside each gallery piece card. Removes the bullets so the details read like a label. */
+article ul {
+    list-style: none;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 1.5rem;
+}
+
+.panel {
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+.panel-accent {
+    background-color: var(--color-accent);
+}
+.panel-accent2 {
+    background-color: var(--color-accent2)
+}
+.panel-accent3 {
+    background-color: var(--color-accent3)
+}
+.panel-accent4 {
+    background-color: var(--color-accent4)
+}
+
+fieldset {
+    margin-bottom: 1rem;
+    min-width: 0;
+}
+
+/* Child combinator: each row (div) directly inside a fieldset on the commissions page, spaced apart so fields don't crowd */
+fieldset > div {
+    margin-bottom: 1rem;
+}
+
+input, textarea {
+    max-width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--color-accent);
+    padding: 2rem;
+    text-align: center;
+}
+
+/* MEDIA QUERY */
+@media (max-width: 600px) {
+    article {
+        padding: 1.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}
